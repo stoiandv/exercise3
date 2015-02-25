@@ -1,0 +1,30 @@
+# exercise3
+def caesar_encrypt(str, n):	
+	encrypt=''
+	for a in str:
+		if a.isalpha():
+			new = ord(a)
+			new = new+n
+			if a.isupper():
+				if new > ord("Z"):     
+					new -= 26
+				elif new < ord("A"):
+					new += 26
+			elif a.islower():
+				if new > ord("z"):     
+					new -= 26
+				elif new < ord("a"):
+					new += 26
+			encrypt = encrypt + chr(new)
+		else:
+			encrypt = encrypt + a
+	return encrypt
+sentence = raw_input("Input string:")
+shiftt=raw_input("Enter number from 1 to 26:")
+shiftt=int(shiftt)
+if (sentence.isalpha()):
+	encrypt = caesar_encrypt(sentence, shiftt)
+	print("The encrypted string is:")
+	print encrypt
+else:
+	print "Can't encrypt characters which aren't alphabetical"
